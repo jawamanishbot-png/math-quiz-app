@@ -1,0 +1,72 @@
+.grade-selector {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  margin: 0 0 10px 0;
+}
+
+.header p {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.grade-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  max-width: 600px;
+}
+
+.grade-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 15px;
+  padding: 40px 20px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.grade-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.grade-button:active {
+  transform: translateY(-2px);
+}
+
+.grade-number {
+  display: block;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .grade-buttons {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

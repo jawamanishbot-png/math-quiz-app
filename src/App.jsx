@@ -1,35 +1,76 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import GradeSelector from './components/GradeSelector'
+import TopicSelector from './components/TopicSelector'
+import Quiz from './components/Quiz'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [screen, setScreen] = useState('gradeSelect') // 'gradeSelect' | 'topicSelect' | 'quiz'
+  const [selectedGrade, setSelectedGrade] = useState(null)
+  const [selectedTopic, setSelectedTopic] = useState(null)
+  const [selectedTopicName, setSelectedTopicName] = useState(null)
+
+  const topicNames = {
+    addition: 'Addition',
+    subtraction: 'Subtraction',
+    multiplication: 'Multiplication',
+    fractions: 'Fractions',
+    decimals: 'Decimals',
+    integers: 'Integers',
+    fractions_advanced: 'Advanced Fractions',
+    algebra: 'Algebra',
+  }
+
+  const handleSelectGrade = (grade) => {
+    setSelectedGrade(grade)
+    setScreen('topicSelect')
+  }
+
+  const handleSelectTopic = (topic) => {
+    setSelectedTopic(topic)
+    setSelectedTopicName(topicNames[topic] || topic)
+    setScreen('quiz')
+  }
+
+  const handleBackToGrades = () => {
+    setScreen('gradeSelect')
+    setSelectedGrade(null)
+    setSelectedTopic(null)
+    setSelectedTopicName(null)
+  }
+
+  const handleBackToTopics = () => {
+    setScreen('topicSelect')
+    setSelectedTopic(null)
+    setSelectedTopicName(null)
+  }
+
+  const handleBackFromQuiz = () => {
+    handleBackToGrades()
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      {screen === 'gradeSelect' && (
+        <GradeSelector onSelectGrade={handleSelectGrade} />
+      )}
+
+      {screen === 'topicSelect' && (
+        <TopicSelector
+          grade={selectedGrade}
+          onSelectTopic={handleSelectTopic}
+          onBack={handleBackToGrades}
+        />
+      )}
+
+      {screen === 'quiz' && (
+        <Quiz
+          grade={selectedGrade}
+          topic={selectedTopic}
+          topicName={selectedTopicName}
+          onBack={handleBackFromQuiz}
+        />
+      )}
+    </div>
   )
 }
-
-export default App

@@ -1,0 +1,88 @@
+.topic-selector {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 40px 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.topic-selector .header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.topic-selector .header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 10px 0;
+}
+
+.topic-selector .header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.topic-card {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 30px 20px;
+  font-size: 1.1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.topic-card:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  border-color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.topic-card:active {
+  transform: translateY(-1px);
+}
+
+.topic-name {
+  display: block;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.back-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+@media (max-width: 768px) {
+  .topic-selector .header h1 {
+    font-size: 2rem;
+  }
+
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+}

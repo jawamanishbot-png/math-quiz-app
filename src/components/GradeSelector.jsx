@@ -1,7 +1,7 @@
 import './GradeSelector.css'
 
 export default function GradeSelector({ onSelectGrade }) {
-  const grades = [3, 5, 7]
+  const grades = [6, 7, 8]
 
   return (
     <div className="grade-selector">

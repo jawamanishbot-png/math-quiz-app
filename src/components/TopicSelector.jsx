@@ -5,14 +5,15 @@ export default function TopicSelector({ grade, onSelectTopic, onBack }) {
   const topics = getTopicsForGrade(grade)
 
   const topicNames = {
-    addition: '➕ Addition',
-    subtraction: '➖ Subtraction',
-    multiplication: '✖️ Multiplication',
-    fractions: '📊 Fractions',
-    decimals: '🔢 Decimals',
-    integers: '⚖️ Integers',
-    fractions_advanced: '📈 Advanced Fractions',
-    algebra: '🔤 Algebra',
+    ratios_proportions: '📊 Ratios & Proportions',
+    decimals_operations: '🔢 Decimals',
+    basic_algebra: '🔤 Basic Algebra',
+    integers_operations: '⚖️ Integers',
+    fractions_more: '📈 Fractions',
+    solving_equations: '✏️ Solving Equations',
+    systems_equations: '⚙️ Systems of Equations',
+    exponents_roots: '🔋 Exponents & Roots',
+    linear_equations_graphing: '📉 Linear Equations',
   }
 
   return (
